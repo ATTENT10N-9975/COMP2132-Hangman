@@ -104,7 +104,8 @@ function renderGame() {
         tile.textContent = revealed ? letter : '_';
         elements.word.append(tile);
     }
-    elements.image.src = `images/hangman-${game.mistakes}.svg`;
+    // The figure starts complete and loses one part for each incorrect guess.
+    elements.image.src = `images/hangman-${MAX_MISTAKES - game.mistakes}.svg`;
     elements.image.alt = `Hangman drawing: ${game.mistakes} of ${MAX_MISTAKES} mistakes`;
     elements.counter.textContent = `${game.mistakes} / ${MAX_MISTAKES} mistakes`;
     const remaining = MAX_MISTAKES - game.mistakes;

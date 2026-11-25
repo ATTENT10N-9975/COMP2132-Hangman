@@ -5,7 +5,7 @@ A browser-based Hangman game featuring programming terms and hints. Guess the hi
 ## How to play
 
 - Read the hint and enter a letter in the input box, or select a letter on the on-screen keyboard.
-- Correct guesses reveal every matching position. Incorrect guesses add a part to the hangman and reduce the remaining chances.
+- Correct guesses reveal every matching position. Incorrect guesses remove a part of the chalk figure and reduce the remaining chances.
 - Each letter can be guessed once per round. Guess all letters to win, or lose after six incorrect guesses.
 - Select **Play Again** to reset the game and choose another word.
 
