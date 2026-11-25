@@ -11,6 +11,10 @@ A browser-based Hangman game featuring programming terms and hints. Guess the hi
 
 The game loads words and hints from `data/words.json` using `fetch`. It uses seven SVG images for the stages of the drawing and a JavaScript animation to display the result.
 
+## AI assistance
+
+AI assisted with the chalkboard theme and visual styling, the creation of the chalk-style SVG hangman images, and the win/loss pop-up with its Try Again button.
+
 ## Branches and online testing
 
 - `main` contains the published version of the project. Its GitHub Pages site is [Play Hangman](https://attent10n-9975.github.io/COMP2132-Hangman/).
