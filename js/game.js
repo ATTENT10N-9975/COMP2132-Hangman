@@ -29,7 +29,8 @@ const elements = {
     result: document.querySelector('#result'),
     resultTitle: document.querySelector('#result-title'),
     resultMessage: document.querySelector('#result-message'),
-    restart: document.querySelector('#restart')
+    restart: document.querySelector('#restart'),
+    playAgain: document.querySelector('#play-again')
 };
 
 // Build the on-screen alphabet; buttons stay disabled until the words load.
@@ -86,9 +87,9 @@ function startGame() {
     game.active = true;
     elements.hint.textContent = game.words[index].hint;
     elements.feedback.textContent = 'Choose a letter to begin.';
-    elements.result.hidden = true;
+    if (elements.result.open) elements.result.close();
     elements.restart.hidden = true;
-    elements.restart.textContent = 'Play Again';
+    elements.restart.textContent = 'Retry';
     elements.input.value = '';
     renderGame();
     elements.input.focus();
@@ -160,8 +161,7 @@ function finishGame(won) {
     elements.resultTitle.textContent = won ? 'You Won!' : 'You Lost!';
     elements.resultMessage.textContent = `The word was ${game.answer}.`;
     elements.result.className = won ? 'result win' : 'result loss';
-    elements.result.hidden = false;
-    elements.restart.hidden = false;
+    elements.result.showModal();
     elements.feedback.textContent = won ? 'Great work! You solved the word.' : 'No chances left. Try another word!';
     // JavaScript animation: fade and slide the result into view.
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -170,7 +170,7 @@ function finishGame(won) {
             { opacity: 1, transform: 'translateY(0)' }
         ], { duration: 350, easing: 'ease-out' });
     }
-    elements.restart.focus();
+    elements.playAgain.focus();
 }
 
 // Both the input form and on-screen keyboard use the same guess logic.
@@ -178,14 +178,13 @@ elements.form.addEventListener('submit', event => {
     event.preventDefault();
     guessLetter(elements.input.value);
 });
-// Retry loading after a fetch failure, or start another round when words exist.
+// Retry loading after a fetch failure.
 elements.restart.addEventListener('click', () => {
-    if (game.words.length) {
-        startGame();
-    } else {
-        elements.restart.hidden = true;
-        loadWords();
-    }
+    elements.restart.hidden = true;
+    loadWords();
 });
+// Keep the result visible until the player starts another round.
+elements.result.addEventListener('cancel', event => event.preventDefault());
+elements.playAgain.addEventListener('click', startGame);
 createKeyboard();
 loadWords();

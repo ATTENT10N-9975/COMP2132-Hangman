@@ -34,14 +34,21 @@
                 </form>
                 <div id="keyboard" class="keyboard" aria-label="Letter keyboard"></div>
                 <p id="feedback" class="feedback" role="status" aria-live="polite">Loading…</p>
-                <div id="result" class="result" hidden>
-                    <h2 id="result-title"></h2>
-                    <p id="result-message"></p>
-                </div>
-                <button id="restart" class="secondary" type="button" hidden>Play Again</button>
+                <button id="restart" class="secondary" type="button" hidden>Retry</button>
             </div>
         </section>
         <footer>COMP 2132 · JavaScript Project <span>Guess smart. Have fun.</span></footer>
     </main>
+    <dialog id="result" class="result" aria-labelledby="result-title" aria-describedby="result-message">
+        <svg class="result-face" viewBox="0 0 120 120" aria-hidden="true">
+            <circle cx="60" cy="60" r="48" />
+            <path d="M42 47 L42 49 M78 47 L78 49" />
+            <path class="face-smile" d="M36 70 Q60 94 84 70" />
+            <path class="face-frown" d="M38 85 Q60 62 82 85 M87 56 Q94 65 87 69 Q80 65 87 56" />
+        </svg>
+        <h2 id="result-title"></h2>
+        <p id="result-message"></p>
+        <button id="play-again" class="secondary" type="button">Try Again</button>
+    </dialog>
 </body>
 </html>

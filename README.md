@@ -7,7 +7,7 @@ A browser-based Hangman game featuring programming terms and hints. Guess the hi
 - Read the hint and enter a letter in the input box, or select a letter on the on-screen keyboard.
 - Correct guesses reveal every matching position. Incorrect guesses add a part to the hangman and reduce the remaining chances.
 - Each letter can be guessed once per round. Guess all letters to win, or lose after six incorrect guesses.
-- Select **Play Again** to reset the game and choose another word.
+- After a win or loss, select **Try Again** in the result window to reset the game and choose another word.
 
 The game loads words and hints from `data/words.json` using `fetch`. It uses seven SVG images for the stages of the drawing and a JavaScript animation to display the result.
 

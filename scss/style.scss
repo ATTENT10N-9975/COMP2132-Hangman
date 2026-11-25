@@ -62,10 +62,13 @@ button:focus-visible, input:focus-visible { outline: 3px solid $gold; outline-of
 .keyboard button.correct { background: #b7dec6; color: #173c2c; opacity: 1; }
 .keyboard button.incorrect { background: #e3b4a8; color: #50241e; opacity: 1; text-decoration: line-through; }
 .feedback { min-height: 24px; margin: 16px 0; color: #e1e9da; font-size: 14px; }
-.result { margin-bottom: 12px; padding: 14px 16px; border: 1px solid #b7dec6; border-radius: 5px; background: #132e25b3; }
-.result.loss { border-color: #e3b4a8; }
-.result h2 { margin: 0; font-size: 23px; }
-.result p { margin: 4px 0 0; overflow-wrap: anywhere; }
+.result { width: min(390px, calc(100% - 32px)); max-height: calc(100dvh - 32px); padding: 28px; border: 8px ridge #b58a5c; border-radius: 4px; background: $board; color: $chalk; text-align: center; box-shadow: 0 15px 55px #0008, inset 0 0 45px #102b2380; }
+.result::backdrop { background: #081a16bb; }
+.result-face { display: block; width: 108px; height: 108px; margin: 0 auto 15px; fill: none; stroke: $gold; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+.result.loss .result-face { stroke: #e3b4a8; }
+.result.win .face-frown, .result.loss .face-smile { display: none; }
+.result h2 { margin: 0; font: 700 32px/1.2 Georgia, serif; }
+.result p { margin: 10px 0 22px; color: #e1e9da; overflow-wrap: anywhere; }
 .secondary { width: 100%; padding: 0 20px; background: $gold; color: #19362d; }
 footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-top: 28px; padding-top: 16px; border-top: 1px solid #f4f1df50; color: #d4e0d0; font-size: 12px; }
 @media (max-width: 720px) {

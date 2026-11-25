@@ -250,24 +250,49 @@ button:focus-visible, input:focus-visible {
 }
 
 .result {
-  margin-bottom: 12px;
-  padding: 14px 16px;
-  border: 1px solid #b7dec6;
-  border-radius: 5px;
-  background: rgba(19, 46, 37, 0.7019607843);
+  width: min(390px, 100% - 32px);
+  max-height: calc(100dvh - 32px);
+  padding: 28px;
+  border: 8px ridge #b58a5c;
+  border-radius: 4px;
+  background: #244b40;
+  color: #f4f1df;
+  text-align: center;
+  box-shadow: 0 15px 55px rgba(0, 0, 0, 0.5333333333), inset 0 0 45px rgba(16, 43, 35, 0.5019607843);
 }
 
-.result.loss {
-  border-color: #e3b4a8;
+.result::backdrop {
+  background: rgba(8, 26, 22, 0.7333333333);
+}
+
+.result-face {
+  display: block;
+  width: 108px;
+  height: 108px;
+  margin: 0 auto 15px;
+  fill: none;
+  stroke: #f1cc77;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.result.loss .result-face {
+  stroke: #e3b4a8;
+}
+
+.result.win .face-frown, .result.loss .face-smile {
+  display: none;
 }
 
 .result h2 {
   margin: 0;
-  font-size: 23px;
+  font: 700 32px/1.2 Georgia, serif;
 }
 
 .result p {
-  margin: 4px 0 0;
+  margin: 10px 0 22px;
+  color: #e1e9da;
   overflow-wrap: anywhere;
 }
 
