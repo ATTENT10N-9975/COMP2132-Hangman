@@ -3,7 +3,7 @@
 const MAX_MISTAKES = 6;
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-// One object keeps all information about the current round together.
+// Keep the loaded word list and the state of the current round together.
 const game = {
     words: [],
     answer: '',
@@ -13,6 +13,7 @@ const game = {
     previousIndex: -1
 };
 
+// Cache the page elements used when updating the game.
 const elements = {
     image: document.querySelector('#hangman'),
     counter: document.querySelector('#counter'),
@@ -31,6 +32,7 @@ const elements = {
     restart: document.querySelector('#restart')
 };
 
+// Build the on-screen alphabet; buttons stay disabled until the words load.
 function createKeyboard() {
     for (const letter of ALPHABET) {
         const button = document.createElement('button');
@@ -54,6 +56,7 @@ async function loadWords() {
         if (!Array.isArray(words)) {
             throw new Error('Invalid word list');
         }
+        // Only accept single English words with a non-empty hint.
         game.words = words.filter(item => item && typeof item.word === 'string' &&
             /^[a-z]+$/i.test(item.word) && typeof item.hint === 'string' && item.hint.trim());
         if (game.words.length === 0) {
@@ -69,6 +72,7 @@ async function loadWords() {
     }
 }
 
+// Choose a word and reset the state and controls for a new round.
 function startGame() {
     let index = Math.floor(Math.random() * game.words.length);
     // Avoid repeating the same word immediately when another word is available.
@@ -90,6 +94,7 @@ function startGame() {
     elements.input.focus();
 }
 
+// Draw the word, hangman image, remaining chances and keyboard from game state.
 function renderGame() {
     elements.word.replaceChildren();
     for (const letter of game.answer) {
@@ -121,6 +126,7 @@ function renderGame() {
     elements.guessButton.disabled = !game.active;
 }
 
+// Validate each guess, update the round, and check for a win or loss.
 function guessLetter(value) {
     if (!game.active) return;
     const letter = value.trim().toUpperCase();
@@ -148,6 +154,7 @@ function guessLetter(value) {
     if (game.active) elements.input.focus();
 }
 
+// End the round, reveal the answer and offer a new game.
 function finishGame(won) {
     game.active = false;
     elements.resultTitle.textContent = won ? 'You Won!' : 'You Lost!';
@@ -166,10 +173,12 @@ function finishGame(won) {
     elements.restart.focus();
 }
 
+// Both the input form and on-screen keyboard use the same guess logic.
 elements.form.addEventListener('submit', event => {
     event.preventDefault();
     guessLetter(elements.input.value);
 });
+// Retry loading after a fetch failure, or start another round when words exist.
 elements.restart.addEventListener('click', () => {
     if (game.words.length) {
         startGame();
