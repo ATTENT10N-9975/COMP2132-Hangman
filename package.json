@@ -1,0 +1,7 @@
+{
+  "name": "comp2132-hangman",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {"build:css": "sass --no-source-map scss/style.scss css/style.css"},
+  "devDependencies": {"sass": "^1.80.0"}
+}

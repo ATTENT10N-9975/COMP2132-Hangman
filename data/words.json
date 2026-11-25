@@ -1,0 +1,18 @@
+[
+    {"word":"javascript","hint":"A programming language that makes web pages interactive."},
+    {"word":"browser","hint":"An application used to visit websites."},
+    {"word":"function","hint":"A reusable block of code that performs a task."},
+    {"word":"variable","hint":"A named container for a value."},
+    {"word":"object","hint":"A collection of properties and values."},
+    {"word":"array","hint":"An ordered collection of values."},
+    {"word":"element","hint":"A building block of an HTML document."},
+    {"word":"server","hint":"A computer or program that responds to client requests."},
+    {"word":"keyboard","hint":"An input device used to type letters."},
+    {"word":"algorithm","hint":"A sequence of steps for solving a problem."},
+    {"word":"animation","hint":"A visual change that happens over time."},
+    {"word":"stylesheet","hint":"A file that controls how a web page looks."},
+    {"word":"boolean","hint":"A value that can be true or false."},
+    {"word":"debugging","hint":"The process of finding and fixing code problems."},
+    {"word":"repository","hint":"A place where a project's files and version history are stored."},
+    {"word":"promise","hint":"A JavaScript object representing the eventual result of an asynchronous operation."}
+]

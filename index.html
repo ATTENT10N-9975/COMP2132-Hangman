@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman | Word Lab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/game.js" defer></script>
+</head>
+<body>
+    <main class="shell">
+        <header class="hero">
+            <p class="eyebrow">WORD LAB / 01</p>
+            <h1>Hangman<span>.</span></h1>
+            <p>Decode the hidden word before your six chances run out.</p>
+        </header>
+        <section class="game" aria-label="Hangman game">
+            <aside class="visual">
+                <div class="visual-top"><span>THE CHALLENGE</span><span id="counter">0 / 6 mistakes</span></div>
+                <img id="hangman" src="images/hangman-0.svg" alt="Hangman with zero mistakes" width="320" height="280">
+                <div id="chances" class="chances" aria-hidden="true"></div>
+                <p id="remaining">6 chances remaining</p>
+            </aside>
+            <div class="play">
+                <p class="eyebrow">YOUR WORD</p>
+                <p id="hint" class="hint">Loading word list…</p>
+                <div id="word" class="word" aria-label="Hidden word"></div>
+                <form id="guess-form" class="guess-form">
+                    <label for="letter">Enter a letter</label>
+                    <div class="input-row">
+                        <input id="letter" type="text" maxlength="1" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="A–Z" disabled>
+                        <button id="guess-button" class="primary" type="submit" disabled>Guess</button>
+                    </div>
+                </form>
+                <div id="keyboard" class="keyboard" aria-label="Letter keyboard"></div>
+                <p id="feedback" class="feedback" role="status" aria-live="polite">Loading…</p>
+                <div id="result" class="result" hidden>
+                    <h2 id="result-title"></h2>
+                    <p id="result-message"></p>
+                </div>
+                <button id="restart" class="secondary" type="button" hidden>Play Again</button>
+            </div>
+        </section>
+        <footer>COMP 2132 · JavaScript Project <span>Guess smart. Have fun.</span></footer>
+    </main>
+</body>
+</html>
